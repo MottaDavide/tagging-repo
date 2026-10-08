@@ -1,0 +1,14 @@
+email_recipient:
+  - "gaiaa_developers@intesasanpaolo.com"
+
+tagging_error_content: |
+  An error has occurred in the Tagging pipeline. Below are the details:
+  - step: {step}.
+  - error message: {exception_message}.
+  - traceback: {traceback}.
+
+dynamic_summary_error_content: |
+  An error has occurred in the Summary pipeline. Below are the details:
+  - step: {step}.
+  - error message: {exception_message}.
+  - traceback: {traceback}.

@@ -1,0 +1,118 @@
+# Parametri di runtime (non-LLM) delle stage del pipeline di tagging.
+# Tutto ciò che riguarda le call LLM e l'init del Layer vive in llm.yaml.
+
+# Stage 1 (parse): PDF → markdown via Azure Document Intelligence.
+# (use_case_id per l'init del Layer → llm.yaml [calls.parse])
+temp_file:
+  path: "/tmp"
+  filename: "document.raw"
+  test-case-result-path: "C:/Repo/cao-fac-tagging/data/tagging-test-case-results"
+
+parse:
+  num_workers: 2
+  # Processor del payload DocumentIntelligence (vedi `genfactory.layer.dtypes.document_analysis`).
+  processor: "prebuilt-layout"
+
+# Stage 2 (prepare): cleaning regex deterministica dei markdown.
+prepare:
+  num_workers: 12
+
+# Stage 3 (img_table): descrizione LLM di figure e tabelle, una call per pagina.
+# (model / max_completion_tokens / use_case_id / http_timeout → llm.yaml [calls.img_table])
+img_table:
+  # Numero massimo di call LLM concorrenti per pagine all'interno di un documento.
+  pages_max_workers: 4
+  # Pre-filtering: figura ricorrente su ≥ layout_recurrence_min pagine con testo
+  # OCR < layout_text_max_chars char → trattata come layout, skip LLM.
+  layout_recurrence_min: 5
+  layout_text_max_chars: 30
+
+# Stage 4 (annotate): inserimento marker «ENTE[...]» nei markdown (no LLM).
+annotate:
+  # Soglia per considerare due citazioni equivalenti (assorbimento varianti più corte).
+  citation_similarity_threshold: 0.99
+
+# Parametri condivisi dagli stage LLM del tagging v2 (discover/classify/resolve_entes).
+# (max_tokens per stage → llm.yaml [calls.discover|classify|resolve_entes])
+classify:
+  # Worker pool condiviso dagli stage paralleli per le call LLM a brano/unità.
+  max_workers: 4
+  # Brani lunghi vengono troncati (head+tail) prima della call LLM.
+  brano_max_chars_for_llm: 4000
+
+# Stage ente (resolve_entes): assegnazione della struttura analizzata.
+# (max_tokens → llm.yaml [calls.resolve_entes])
+resolve_entes:
+  # Frammenti regex (uniti con `|`, match IGNORECASE) che identificano funzioni di
+  # controllo/compliance/audit: sono CHI esegue il controllo, non l'oggetto analizzato,
+  # quindi il tag viene emesso solo se l'ente è ancorato localmente (marker sulla pagina).
+  # Estendibile: aggiungi qui i nuovi termini. Usa i single-quote così `\b` resta letterale.
+  disfavored_controller_terms:
+    - 'ANTI FINANCIAL CRIME'
+    - 'SECOND LEVEL CONTROL'
+    - 'COMPLIA'
+    - '\bCONTROLLI\b'
+    - 'ANTIRICICL'
+    - 'INTERNAL AUDIT'
+    - '\bAUDIT\b'
+    - 'CHIEF (?:RISK|COMPLIANCE|AUDIT) OFFICER'
+
+# Stage 7 (summary): analisi espositiva LLM per tag unico.
+# (max_tokens → llm.yaml [calls.tag_summary])
+tag_summary:
+  # Worker pool per le call LLM parallele a tag unico.
+  max_workers: 4
+
+# Summary dinamica (on-demand): analisi espositiva LLM degli estratti per quadrupla.
+# (max_tokens → llm.yaml [calls.dynamic_summary])
+dynamic_summary:
+  # Worker pool per le call LLM parallele a gruppo (quadrupla).
+  max_workers: 4
+
+# Orchestratore batch: serial o multi-process parallelo per use_case.
+runner:
+  # Pausa tra documenti consecutivi nel path serial.
+  sleep_between_docs_s: 5
+
+# Script one-shot in `prj/scripts/` (non parte della pipeline runtime).
+tools:
+  # build_tags_credito: legge l'Excel di validazione e produce data/tags_credito.json.
+  build_tags:
+    sheet_name: "Porzioni testuali taggate"
+    # Riga 1 = header, riga 2 = docstring/aiuti; i dati partono da min_row.
+    min_row: 3
+    # Indici colonna 0-based dell'Excel "Taggatura fonti Credito - update validazione".
+    filename_col: 1
+    # Colonna del flag di validazione: solo righe con `validation_value` vengono incluse.
+    validation_col: 13
+    validation_value: "Y"
+    # Mapping nome-campo → indice colonna 0-based (le chiavi sono usate runtime nel codice).
+    cols:
+      Estratto: 4
+      Pagina: 6
+      Risk Model: 7
+      OdC: 8
+      MO: 9
+      Ente: 10
+      Periodo: 11
+  # (optimize_odc: parametri LLM → llm.yaml [calls.optimize_odc])
+
+# Utility condivise di parsing/matching del markdown (core/services/text/).
+text:
+  tokens:
+    # Encoding tiktoken (cambia con la famiglia di modelli). 'o200k_base' = GPT-4o/GPT-5.
+    tiktoken_encoding: "o200k_base"
+  anchor:
+    # Finestra di ricerca (in char) attorno all'hint di pagina per i fallback prefix-based
+    # (~2-3 pagine attorno al [PAGE N] menzionato dall'LLM).
+    window_chars: 8000
+    # Lunghezze del prefisso provate in ordine decrescente nel fallback short-prefix.
+    prefix_lengths: [60, 45, 30]
+  markdown:
+    # is_chart_only_figure: rapporto min alpha/total chars per NON considerarla chart-only.
+    chart_alpha_ratio_threshold: 0.40
+    # is_chart_only_figure: numero min di "frasi" (3+ parole consecutive) per NON considerarla chart-only.
+    chart_min_sentences: 2
+    # remove_chart_figures: lunghezza min figcaption per generare placeholder "[Grafico: ...]"
+    # (sotto la soglia, la figura viene rimossa senza placeholder).
+    chart_caption_min_chars: 10

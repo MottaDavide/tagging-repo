@@ -1,0 +1,68 @@
+# llm.yaml — UNICA config per tutto ciò che riguarda le chiamate LLM via genfactory
+# e l'inizializzazione del `Layer`. Consumata da `core.services.llm.*` e da tutti gli
+# stage/script che effettuano call LLM (img_table, tag_rm/mo/odc, tag_document, parse,
+# runner, script optimize_odc).
+#
+# NB: smartocr (entity_extraction) usa un backend diverso da genfactory: i suoi
+# parametri restano in entity_extraction.yaml.
+
+# Modello LLM di default per tutte le call genfactory.
+# Un consumer può fare override impostando `model` nella propria sezione `calls.<name>`.
+default_model: "gpt-5.4-2026-03-05"
+
+# Inizializzazione del Layer genfactory (default condivisi).
+layer:
+  use_case_id: "AUDIT"
+  token_lifetime_min: 9
+  # Timeout HTTP per le call async standard. Override per-call sotto `calls.<name>.http_timeout`.
+  http_timeout:
+    connect: 30.0
+    read: 30.0
+    write: 30.0
+    pool: 600.0
+
+# Retry policy di call_llm (core.services.llm.client).
+client:
+  max_retries: 3
+
+# Parametri LLM specifici per ciascun consumer (stage/script).
+# `model` omesso ⇒ usa default_model. `http_timeout`/`http_timeout_s` omesso ⇒ usa layer.http_timeout.
+calls:
+  # Stage 1 (parse): PDF → markdown via Azure Document Intelligence (init Layer dedicato).
+  parse:
+    use_case_id: "AUDIT"
+  # Stage 3 (img_table): descrizione figure/tabelle. Le call con immagini sono lente → timeout più alto.
+  img_table:
+    use_case_id: "AUDIT"
+    max_completion_tokens: 3000
+    http_timeout:
+      connect: 120.0
+      read: 120.0
+      write: 120.0
+      pool: 120.0
+  # Stage 0: estrazione data documento dalla prima pagina.
+  date_extraction:
+    model: "gpt-5-mini-2025-08-07"
+    max_tokens: 1000
+  # Tagging v2 - discovery: gate RM per unità (una call per unità segmentata).
+  discover:
+    max_tokens: 2000
+  # Tagging v2 - classify+extract: brani verbatim + OdC per unità (MO derivato).
+  classify:
+    max_tokens: 8000
+  # Tagging v2 - resolve_entes: selezione struttura analizzata dal pool locale.
+  resolve_entes:
+    max_tokens: 2000
+  # Stage 7 (summary): analisi espositiva per tag unico. Call parallele (ThreadPoolExecutor).
+  tag_summary:
+    max_tokens: 8000
+  # Summary dinamica (on-demand): analisi espositiva degli estratti per quadrupla.
+  # Call parallele a gruppo (ThreadPoolExecutor); solo gli estratti in input, non il documento.
+  dynamic_summary:
+    max_tokens: 8000
+  # Script one-shot optimize_odc: rigenera hierarchy.json + descrizioni MO/OdC via LLM.
+  optimize_odc:
+    use_case_id: "AUDIT"
+    max_completion_tokens: 4000
+    # Timeout HTTP (singolo float applicato a connect/read/write/pool).
+    http_timeout_s: 120.0

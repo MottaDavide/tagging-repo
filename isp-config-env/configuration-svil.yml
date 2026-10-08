@@ -1,0 +1,7 @@
+### Configuration for internal deployment in Openshift
+### REMEMBER TO SET THE CORRECT VALUES
+
+configuration:
+  env:
+    - name: LOG_LEVEL
+      value: "INFO"

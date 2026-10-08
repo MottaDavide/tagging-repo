@@ -1,0 +1,80 @@
+default_install_hook_types: [pre-commit, pre-push]
+
+repos:
+  # ── hook standard pre-commit-hooks ─────────────────────────────────────────
+  # Hook leggeri senza dipendenze Python, eseguiti a pre-commit per feedback
+  # immediato prima ancora di completare il commit.
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml # valida la sintassi di tutti i file YAML (config, CI, ecc.)
+        stages: [pre-commit]
+      - id: check-toml # valida la sintassi di pyproject.toml e altri file TOML
+        stages: [pre-commit]
+      - id: check-merge-conflict # blocca commit/push con marker <<<<<<< rimasti nel codice
+        stages: [pre-commit]
+      - id: end-of-file-fixer # assicura che ogni file termini con un newline
+        stages: [pre-commit]
+      - id: trailing-whitespace # rimuove spazi bianchi a fine riga
+        stages: [pre-commit]
+
+  # ── hook locali ────────────────────────────────────────────────────────────
+  # Gli hook invocano direttamente i tool del venv via `uv run --no-sync` (gli
+  # stessi comandi dei target del Makefile), senza dipendere da `make`: girano
+  # anche dove `make` non è disponibile e restano offline (nessun contatto con
+  # l'indice Artifactory).
+  #
+  # ATTENZIONE: le path qui sotto replicano `PY_SRC`/`PY_TEST` del Makefile. Se
+  # aggiungi/rimuovi una cartella sorgente o di test, aggiorna Makefile e questo
+  # file insieme, così `make check && make test` locale resta equivalente agli hook.
+  - repo: local
+    hooks:
+      # ── uv lock --check ──────────────────────────────────────────────────────
+      # Verifica che uv.lock sia coerente con pyproject.toml. Veloce (~50ms).
+      - id: uv-lock-check
+        name: uv lock --check
+        entry: uv lock --check
+        language: system
+        pass_filenames: false
+        files: ^(pyproject\.toml|uv\.lock)$
+        stages: [pre-commit]
+
+      # ── ruff format --check ──────────────────────────────────────────────────
+      # --check: non modifica i file — se fallisce, esegui `make fix`, ri-stagea e ripeti il commit.
+      - id: ruff-format
+        name: ruff format --check
+        entry: uv run --no-sync ruff format --check prj/app prj/scripts prj/evaluation tests/plan/core tests/evaluation
+        language: system
+        types: [python]
+        pass_filenames: false
+        stages: [pre-commit]
+
+      # ── ruff check ───────────────────────────────────────────────────────────
+      # --no-fix: in pre-push valida soltanto; il fix lo applica il dev con `make fix`.
+      - id: ruff-lint
+        name: ruff check --no-fix
+        entry: uv run --no-sync ruff check --no-fix prj/app prj/scripts prj/evaluation tests/plan/core tests/evaluation
+        language: system
+        types: [python]
+        pass_filenames: false
+        stages: [pre-push]
+
+      # ── mypy ─────────────────────────────────────────────────────────────────
+      # Type checking solo sul codice di produzione (i test usano mocker/MagicMock non tipati).
+      - id: mypy
+        name: mypy
+        entry: uv run --no-sync mypy prj/app prj/scripts prj/evaluation
+        language: system
+        types: [python]
+        pass_filenames: false
+        stages: [pre-push]
+
+      # ── pytest ───────────────────────────────────────────────────────────────
+      # Suite completa con coverage (gate definito in pyproject).
+      - id: pytest
+        name: pytest
+        entry: uv run --no-sync pytest tests/plan/core tests/evaluation
+        language: system
+        types: [python]
+        pass_filenames: false
+        stages: [pre-push]

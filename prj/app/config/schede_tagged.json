@@ -1,0 +1,662 @@
+{
+  "ADC ACQUISITION DEVELOPMENT CONSTRUCTION DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "AGGIORNAMENTO PERIZIE SU IMMOBILI A GARANZIA DI POSIZIONI IN BONIS PERIZIE SCADUTE CON CRITICITÀ NELLA FASE DI RACCOLTA DOCUMENTALE DIVISIONE IMI CIB 1": {
+    "Risk Model": "CREDITO",
+    "odc": "46045 Gestione delle perizie",
+    "mo": "8833 MO Credit Risk Mitigation (Garanzie e Covenant)"
+  },
+  "ANTICIPI SU FATTURE CON TERMINI DI PAGAMENTO SCADUTI DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5052 Intercettamento e gestione del credito anomalo",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "Applicazione dellHaircut rispetto dei termini previsti dalle Regole sulla gestione dei crediti a sofferenza 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5054 Sofferenze",
+    "mo": "8835 MO Credito non performing"
+  },
+  "Coerenza fatturazione legali e procedure censite in EPC 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5054 Sofferenze",
+    "mo": "8835 MO Credito non performing"
+  },
+  "CONTROLLI DOCUMENTALI A DISTANZA O IN LOCO DIVISIONE IMI CIB": {
+    "Risk Model": "CREDITO",
+    "odc": "4601 Istruttoria e proposta",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "CONTROLLO AGGIORNAMENTO ATTRIBUZIONE RATING SCADUTI DECLASSATI MISSING E UNRATED DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5050 Attribuzione del rating",
+    "mo": "2503 MO Rating"
+  },
+  "CONTROLLO DEI COVENANT CON ATTIVITA DI MONITORAGGIO SCADUTA DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "4604 Gestione e monitoraggio delle mitigazioni del rischio di credito",
+    "mo": "8833 MO Credit Risk Mitigation (Garanzie e Covenant)"
+  },
+  "CONTROLLO DEI COVENANT ROTTI DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "4604 Gestione e monitoraggio delle mitigazioni del rischio di credito",
+    "mo": "8833 MO Credit Risk Mitigation (Garanzie e Covenant)"
+  },
+  "CONTROLLO DESELEZIONEDEFLAG DELLE LINEE DI CREDITO TARGATE LT DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "CONTROLLO INFRASTRUCTURE SUPPORTING FACTOR DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "4598 Requisiti patrimoniali",
+    "mo": "2576 MO Gestione e controllo del rischio di credito"
+  },
+  "Controllo Posizioni classificate a sofferenza con saldo avere 1LA": {
+    "Risk Model": "CREDITO",
+    "odc": "5054 Sofferenze",
+    "mo": "8835 MO Credito non performing"
+  },
+  "CONTROLLO QUALITA COVENANT NUMERICI E DESCRITTIVI (OWNERSHIP CLAUSE E CHANGE OF CONTROL) DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "4604 Gestione e monitoraggio delle mitigazioni del rischio di credito",
+    "mo": "8833 MO Credit Risk Mitigation (Garanzie e Covenant)"
+  },
+  "Covenant ESG con data di monitoraggio scaduta Divisione IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "4604 Gestione e monitoraggio delle mitigazioni del rischio di credito",
+    "mo": "8833 MO Credit Risk Mitigation (Garanzie e Covenant)"
+  },
+  "FINANZIAMENTI ESTERO SCADUTI DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "GARANZIE FINANZIARIE PIGNORATIZIE DELIBERATE DA PERFEZIONARE (PGA) DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "4604 Gestione e monitoraggio delle mitigazioni del rischio di credito",
+    "mo": "8833 MO Credit Risk Mitigation (Garanzie e Covenant)"
+  },
+  "Gestione componenti ADDON su posizioni UTP soggette a valutazione analitica": {
+    "Risk Model": "CREDITO",
+    "odc": "5053 Unlikely to Pay",
+    "mo": "8835 MO Credito non performing"
+  },
+  "Impieghi vivi su posizioni classificate a sofferenza 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5054 Sofferenze",
+    "mo": "8835 MO Credito non performing"
+  },
+  "INFRASTRUCTURE SUPPORTING FACTOR CONTROL IMI CIB DIVISION 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "4598 Requisiti patrimoniali",
+    "mo": "2576 MO Gestione e controllo del rischio di credito"
+  },
+  "KC 15-16 Performing": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "KC03 Sofferenza": {
+    "Risk Model": "CREDITO",
+    "odc": "5054 Sofferenze",
+    "mo": "8835 MO Credito non performing"
+  },
+  "KC05 Corretta applicazione di Facoltà e Regole di Concessione del Credito in fase di delibera BdT": {
+    "Risk Model": "CREDITO",
+    "odc": "4602 Delibera",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "KC13 Inadempienza Probabile": {
+    "Risk Model": "CREDITO",
+    "odc": "5053 Unlikely to Pay",
+    "mo": "8835 MO Credito non performing"
+  },
+  "KC17 Past Due": {
+    "Risk Model": "CREDITO",
+    "odc": "4612 Past due",
+    "mo": "8835 MO Credito non performing"
+  },
+  "KC20 Forborne BdT": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "Linee di credito finanziamenti con attributo Altre forme di sostenibilità privi di collegamento a covenant ESG Divisione IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "4604 Gestione e monitoraggio delle mitigazioni del rischio di credito",
+    "mo": "8833 MO Credit Risk Mitigation (Garanzie e Covenant)"
+  },
+  "Livello completezza documentale nuove posizioni classificate in sofferenza 1LA": {
+    "Risk Model": "CREDITO",
+    "odc": "5054 Sofferenze",
+    "mo": "8835 MO Credito non performing"
+  },
+  "Monitoraggio forzature Alert Data Quality su posizioni a Sofferenza 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5054 Sofferenze",
+    "mo": "8835 MO Credito non performing"
+  },
+  "OPERATIVITA ORIGINATE TO SHARE CONTROLLO DELLAVVENUTA VERIFICA DELLA SUSSISTENZA DI EVENTUALI NEGATIVITA RELATIVAMENTE AL MERITO CREDITIZIO DIVISIONE IM": {
+    "Risk Model": "CREDITO",
+    "odc": "4601 Istruttoria e proposta",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "Piani di rientro previsioni di rientro stimate dal gestore non aggiornate 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "POSIZIONI CLASSIFICATE UTP CON DATA REVISIONE FIDI SCADUTA DIVISIONE BDT E IMI CIB": {
+    "Risk Model": "CREDITO",
+    "odc": "5053 Unlikely to Pay",
+    "mo": "8835 MO Credito non performing"
+  },
+  "PIANI DI RIENTRO PREVISIONI DI RIENTRO STIMATE DAL GESTORE NON AGGIORNATE - 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "Posizioni con riprese di valore prive di delibera 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5054 Sofferenze",
+    "mo": "8835 MO Credito non performing"
+  },
+  "POSIZIONI IN STATO INADEMPIENZA PROBABILE E INADEMPIENZA PROBABILE FORBORNE SCADUTE 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5053 Unlikely to Pay",
+    "mo": "8835 MO Credito non performing"
+  },
+  "Posizioni in valutazione analitica prive di valutazione nel corso dellanno 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5054 Sofferenze",
+    "mo": "8835 MO Credito non performing"
+  },
+  "Posizioni UTP con linee di credito Forborne in sconfino": {
+    "Risk Model": "CREDITO",
+    "odc": "5053 Unlikely to Pay",
+    "mo": "8835 MO Credito non performing"
+  },
+  "POSIZIONI UTP CON LINEE MLT TARGATE FORBORNE PRIVE DI BUSINESS PLAN ASSOCIATO 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5053 Unlikely to Pay",
+    "mo": "8835 MO Credito non performing"
+  },
+  "Posizioni UTP Stagnanti": {
+    "Risk Model": "CREDITO",
+    "odc": "5053 Unlikely to Pay",
+    "mo": "8835 MO Credito non performing"
+  },
+  "Qualità dati dei covenant ESG e relativo monitoraggio Divisione IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "4604 Gestione e monitoraggio delle mitigazioni del rischio di credito",
+    "mo": "8833 MO Credit Risk Mitigation (Garanzie e Covenant)"
+  },
+  "RATING DI LEGALITA DEROGHE PRICING RISPETTO AGLI STANDARD DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "4601 Istruttoria e proposta",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "RATING DI LEGALITA TEMPI DI DELIBERA DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "4601 Istruttoria e proposta",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "SCONFINAMENTI CONTINUATIVI DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "SCONFINAMENTI DI CONTO CORRENTE SU SALDO DISPONIBILE DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "SCONFINAMENTI DI OPERAZIONI IN DERIVATI DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "SCONFINAMENTI PER IMPEGNI DI FIRMA DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "Sofferenza con notizia 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5054 Sofferenze",
+    "mo": "8835 MO Credito non performing"
+  },
+  "Tempistiche di assegnazione della pratica al gestore recupero crediti 1LA": {
+    "Risk Model": "CREDITO",
+    "odc": "5054 Sofferenze",
+    "mo": "8835 MO Credito non performing"
+  },
+  "Tempistiche di decisione e comunicazione al Servicer dellesito delle proposte di delibera 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "4602 Delibera",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "TERMINI DI REVISIONE INTERNI SCADUTI DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "UTP in valutazione analitica prive di delibera di prima valutazione": {
+    "Risk Model": "CREDITO",
+    "odc": "5053 Unlikely to Pay",
+    "mo": "8835 MO Credito non performing"
+  },
+  "VERIFICA COVENANT CORRELATO ALLINDICATORE DSCR SU POSIZIONI UTP CON LINEE MLT TARGATE FORBORNE 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "4604 Gestione e monitoraggio delle mitigazioni del rischio di credito",
+    "mo": "8833 MO Credit Risk Mitigation (Garanzie e Covenant)"
+  },
+  "VERIFICA DEL RISPETTO DELLE CONDIZIONI PRESENTI NEI PARERI OMR DIVISIONE IMI CIB 1L": {
+    "Risk Model": "CREDITO",
+    "odc": "4603 Perfezionamento",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "A01PI_Processo di istruttoria del credito": {
+    "Risk Model": "CREDITO",
+    "odc": "4601 Istruttoria e proposta",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "A02PI_Rinnovo finanziamenti ed estinzioni anticipate": {
+    "Risk Model": "CREDITO",
+    "odc": "4601 Istruttoria e proposta",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "A03PI_Anticipo TFS": {
+    "Risk Model": "CREDITO",
+    "odc": "4601 Istruttoria e proposta",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "A04PI_Corretta imputazione della causale di rifiuto finanziamento": {
+    "Risk Model": "CREDITO",
+    "odc": "4601 Istruttoria e proposta",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "A05PI_Assenza note relative a erogazioni subordinate": {
+    "Risk Model": "CREDITO",
+    "odc": "4602 Delibera",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "A06PI_Controllo polizza assicurativa": {
+    "Risk Model": "CREDITO",
+    "odc": "4601 Istruttoria e proposta",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "B01PI Censimento Anagrafico della clientela": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B02PI Questionario Adeguata Verifica e Identificazione della clientela": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B03PI - Valutazione Inattesi Gianos archiviati": {
+    "Risk Model": "AML",
+    "odc": "5071 Monitoraggio della movimentazione - Transaction Monitoring",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B04PI - Gestione dei sospesi nellAUI provvisorio": {
+    "Risk Model": "AML",
+    "odc": "5070 Conservazione e messa a disposizione dei documenti, dei dati e delle informazioni per il contrasto del riciclaggio e del finanziamento del terrorismo",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B05PI - Revisione della adeguata verifica per effetto di EDR (event driven review)": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B09acc Clienti delegati su un numero elevato di rapporti": {
+    "Risk Model": "AML",
+    "odc": "5071 Monitoraggio della movimentazione - Transaction Monitoring",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B11.1acc Rispetto Istruzioni AML (autorizzazione al mantenimento dei rapporti con riserva)": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B12.1acc Monitoraggio in CAUI delle operazioni in contante": {
+    "Risk Model": "AML",
+    "odc": "5070 Conservazione e messa a disposizione dei documenti, dei dati e delle informazioni per il contrasto del riciclaggio e del finanziamento del terrorismo",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B15acc Famiglie Consumatrici con rapporti di portafoglio commerciale": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B16acc Registrazioni AUI su operazioni di sportello": {
+    "Risk Model": "AML",
+    "odc": "5070 Conservazione e messa a disposizione dei documenti, dei dati e delle informazioni per il contrasto del riciclaggio e del finanziamento del terrorismo",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B17acc Annullamenti registrazioni manuali nell'AUI provvisorio": {
+    "Risk Model": "AML",
+    "odc": "5070 Conservazione e messa a disposizione dei documenti, dei dati e delle informazioni per il contrasto del riciclaggio e del finanziamento del terrorismo",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B18acc Registrazioni manuali in AUI": {
+    "Risk Model": "AML",
+    "odc": "5070 Conservazione e messa a disposizione dei documenti, dei dati e delle informazioni per il contrasto del riciclaggio e del finanziamento del terrorismo",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B26.1acc Anagrafiche incomplete e riferimenti errati AUI": {
+    "Risk Model": "AML",
+    "odc": "5070 Conservazione e messa a disposizione dei documenti, dei dati e delle informazioni per il contrasto del riciclaggio e del finanziamento del terrorismo",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B28acc Questionario Adeguata Verifica Gianos 3D": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B29acc Questionario Adeguata Verifica su polizze emesse": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B30acc Rischi Rilevanti Embarghi": {
+    "Risk Model": "AML",
+    "odc": "4714 Gestione Antiterrorismo e embarghi",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B31acc Clienti fuori zona": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B32acc For Funding (Terzo Valore) controlli per la limitazione dei rischi in ambito trasparenza e AML": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B35acc Sponsorizzazioni Territoriali Verifiche documentali": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B39acc Posizioni censite in anagrafe con un codice Soggetto Antiriciclaggio": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B40acc Analisi Adeguata Verifica Trust società partecipate da Trust Fiduciarie in assenza del previsto codice Soggetto Antiriciclaggio": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B41acc Analisi Adeguata Verifica Agenti di Money Transfer in assenza del previsto codice Soggetto": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B42acc Scarico blocchi Antiriciclaggio": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B43acc Posizioni beneficiarie di Finanziamenti MLT": {
+    "Risk Model": "AML",
+    "odc": "5071 Monitoraggio della movimentazione - Transaction Monitoring",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B44acc Presidio incassi provenienti da paesi in fascia di rischio A e B": {
+    "Risk Model": "AML",
+    "odc": "4714 Gestione Antiterrorismo e embarghi",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B45acc KYC09 Ritardi nella valutazione dei clienti": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B46acc Operazioni contestuali di prelievo e versamento contante": {
+    "Risk Model": "AML",
+    "odc": "5070 Conservazione e messa a disposizione dei documenti, dei dati e delle informazioni per il contrasto del riciclaggio e del finanziamento del terrorismo",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B47acc Analisi Adeguata Verifica Operatori in giochi e scommesse in assenza del previsto codice Soggetto Antiriciclaggio": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B48acc Verifica corretto censimento in anagrafe e corretta profilatura AML per i clienti riconducibili a taluni Paesi del gruppo A (Iranian Subjects) e gruppo B (Russian-Belarusian)": {
+    "Risk Model": "AML",
+    "odc": "4714 Gestione Antiterrorismo e embarghi",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B49acc Registrazioni AUI su operazioni di Sportello transazione REGCO INTCO ESICO": {
+    "Risk Model": "AML",
+    "odc": "5070 Conservazione e messa a disposizione dei documenti, dei dati e delle informazioni per il contrasto del riciclaggio e del finanziamento del terrorismo",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B50acc - Adeguata verifica su clienti aderenti al Sistema di Accoglienza e Integrazione (SAI, ex SPRAR) classificati con codice soggetto antiriciclaggio “39 - SIST. PROT. RICH. ASILO E RIFUG": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B51acc Apertura XME CONTO tramite acquisto on line (Paesi Embargati)": {
+    "Risk Model": "AML",
+    "odc": "4714 Gestione Antiterrorismo e embarghi",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B52acc Adeguata Verifica aziende non affidate": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B53acc Erogazioni di finanziamenti supportati da contributi pubblici": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "B54acc Verifica RACCOMANDAZIONI impartite dal Competence Center": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "CC05STC Verifica iter gestionale valutazioni Desk Territoriali ": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "CC06STC - ISYBANK - Verifica iter gestionale valutazioni DESK KYC ISY ": {
+    "Risk Model": "CREDITO",
+    "odc": "4601 Istruttoria e proposta",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "SCR01STC Controllo sconfinamento per esposizione finanziaria maggiore del Monte crediti del Cedente e-o presenza esposizione finanziaria su conti con crediti non finanziabili": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "SCR03STC Elevata incidenza Note di Accredito": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "SCR04STC Controllo Sconfinamento quota pro solvendo fido cedente": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "SCR05STC Rapporto di factoring con concentrazione su un unico debitore ceduto non prevista in delibera": {
+    "Risk Model": "CREDITO",
+    "odc": "4601 Istruttoria e proposta",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "SCR07STC Verifica ritardato rimborso importi incassati dai cedenti nei rapporti con fidi not notification": {
+    "Risk Model": "CREDITO",
+    "odc": "5048 Cessione e gestione portafogli / crediti",
+    "mo": "2576 MO Gestione e controllo del rischio di credito"
+  },
+  "SCR08STC Controllo sul corretto inserimento delle causali di proroga o di esclusione temporanea dello scaduto factoring": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "SCR09STC Sconfinamento fido cedente factoring Divisione BdT": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "SCR10STC Rinnovo alla pari affidamenti factoring": {
+    "Risk Model": "CREDITO",
+    "odc": "4601 Istruttoria e proposta",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "A01M Monitoraggio sconfinamenti di conto corrente": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "A02acc Attività deliberativa dei gestori coordinatori direttori in assenza di contraddittorio": {
+    "Risk Model": "CREDITO",
+    "odc": "5050 Attribuzione del rating",
+    "mo": "2503 MO Rating"
+  },
+  "A06acc Finanziamenti Estero": {
+    "Risk Model": "CREDITO",
+    "odc": "4601 Istruttoria e proposta",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "A09.1acc Documentazione contrattuale a supporto delle pratiche di fido (Filiali Imprese-Retail -Agribusiness e Impact)": {
+    "Risk Model": "CREDITO",
+    "odc": "4603 Perfezionamento",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "A09.2acc Documentazione contrattuale a supporto delle pratiche di fido (Filiali Exclusive)": {
+    "Risk Model": "CREDITO",
+    "odc": "4603 Perfezionamento",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "A10 Portafoglio Unrated e Rating deteriorati-scaduti-attribuiti da processi automatici-disallineati e Linee di credito da revisionare": {
+    "Risk Model": "CREDITO",
+    "odc": "5050 Attribuzione del rating",
+    "mo": "2503 MO Rating"
+  },
+  "A11acc Finanziamenti MLT con erogazioni a Stato Avanzamento Lavori": {
+    "Risk Model": "CREDITO",
+    "odc": "4603 Perfezionamento",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "A12.1acc Proposta di prestito personale": {
+    "Risk Model": "CREDITO",
+    "odc": "4601 Istruttoria e proposta",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "A13acc Sconfinamenti per operazioni in Derivati OTC": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "A16acc Rispetto dei limiti assegnati al Deliberante": {
+    "Risk Model": "CREDITO",
+    "odc": "4602 Delibera",
+    "mo": "2578 MO Concessione del credito"
+  },
+  "A17acc Anticipo Fatture estinzione con addebito in c-c": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "A18acc Anticipi fatture scaduti da oltre 60 giorni": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "A19acc Scarico anticipato blocchi assegni SBF": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "A20acc Sconfinamenti tecnici": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "A21acc Posizioni non rientrate per sconfinamenti maggiori di 20 giorni": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "A23acc Sconfinamenti di importo rilevante giornaliero": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "A24acc Garanzie ricognizione documentale": {
+    "Risk Model": "CREDITO",
+    "odc": "4604 Gestione e monitoraggio delle mitigazioni del rischio di credito",
+    "mo": "8833 MO Credit Risk Mitigation (Garanzie e Covenant)"
+  },
+  "A24.1acc Garanzie sistemazione anomalie documentali": {
+    "Risk Model": "CREDITO",
+    "odc": "4604 Gestione e monitoraggio delle mitigazioni del rischio di credito",
+    "mo": "8833 MO Credit Risk Mitigation (Garanzie e Covenant)"
+  },
+  "A25acc Presentazioni portafoglio commerciale in sconfino": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "A26acc Covenant numerici scaduti": {
+    "Risk Model": "CREDITO",
+    "odc": "4604 Gestione e monitoraggio delle mitigazioni del rischio di credito",
+    "mo": "8833 MO Credit Risk Mitigation (Garanzie e Covenant)"
+  },
+  "A27acc Prestiti d'uso d'oro scaduti": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "A28acc Leveraged Transaction": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "A29acc Sistemazioni Alert PGA": {
+    "Risk Model": "CREDITO",
+    "odc": "4604 Gestione e monitoraggio delle mitigazioni del rischio di credito",
+    "mo": "8833 MO Credit Risk Mitigation (Garanzie e Covenant)"
+  },
+  "A30acc Presentazioni portafoglio SDD in esubero rispetto specifici plafond": {
+    "Risk Model": "CREDITO",
+    "odc": "5051 Monitoraggio del credito",
+    "mo": "8834 MO Gestione e monitoraggio del credito performing"
+  },
+  "MP14acc Verifica operazioni di riscatto > 3 polizze effettuate da soggetto diverso da titolare polizza": {
+    "Risk Model": "AML",
+    "odc": "5072 Limitazioni in materia di contante, titoli al portatore, intestazione prodotti di conto, moneta elettronica e libretti",
+    "mo": "8838 MO Gestione AML"
+  },
+  "MP15acc Verifica nominativi ricorrenti > 5 polizze": {
+    "Risk Model": "AML",
+    "odc": "5072 Limitazioni in materia di contante, titoli al portatore, intestazione prodotti di conto, moneta elettronica e libretti",
+    "mo": "8838 MO Gestione AML"
+  },
+  "MP16acc Verifica operazioni di rinnovo > 3 polizze effettuate da soggetto diverso da titolare polizza": {
+    "Risk Model": "AML",
+    "odc": "5072 Limitazioni in materia di contante, titoli al portatore, intestazione prodotti di conto, moneta elettronica e libretti",
+    "mo": "8838 MO Gestione AML"
+  },
+  "MP22acc Compilazione Questionario di Adeguata Verifica": {
+    "Risk Model": "AML",
+    "odc": "5069 Adeguata verifica della clientela",
+    "mo": "8838 MO Gestione AML"
+  },
+  "MP23 Verifica operazioni di riscatto con bonifico disposte da altro soggetto": {
+    "Risk Model": "AML",
+    "odc": "5072 Limitazioni in materia di contante, titoli al portatore, intestazione prodotti di conto, moneta elettronica e libretti",
+    "mo": "8838 MO Gestione AML"
+  }
+}

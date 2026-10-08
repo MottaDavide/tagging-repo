@@ -1,0 +1,11 @@
+### Configuration for internal deployment in Openshift
+### REMEMBER TO SET THE CORRECT VALUES
+
+configuration:
+  env:
+    - name: LOG_LEVEL
+      value: "INFO"
+    - name: CALLBACK_TAGGING
+      value: http://core-ai-datacrawler-v1-aurr0-prod.cloudapps.intesasanpaolo.com/api/rest/dataCrawling/status/update
+    - name: CALLBACK_SUMMARY
+      value: http://servizibe-aubr0.gtm.corp.sanpaoloimi.com:23108/auditdatabrain-be/nmo/summarizationDaio

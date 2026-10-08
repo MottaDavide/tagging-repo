@@ -1,0 +1,22 @@
+# Parametri per l'estrazione entità SOA tramite il pacchetto soa_detection.
+# env: ambiente di esecuzione del servizio aiaas-soa-detection
+#      (valori ammessi: "prod" | "svil" | "svis" | "ptes" | "local").
+# use_case: identificatore del use case registrato sul layer.
+# max_workers: numero di chiamate parallele (una per batch di entità in enti.json).
+# max_retries: numero massimo di retry in caso di risposta con entity_extracted vuoto.
+# retry_delay_s: pausa in secondi tra un tentativo e il successivo.
+soa_detection:
+  service: "openai"
+  language: "it"
+  use_case: "AUDIT"
+  max_workers: 20
+  max_retries: 10
+  retry_delay_s: 5.0
+  params:
+    args:
+      model:
+        model_id: "gpt-5.1"
+        reasoning_effort: "low"
+        max_completion_tokens: 100000000000
+        max_input_tokens: 10000000000
+  isp_code: "0101025"

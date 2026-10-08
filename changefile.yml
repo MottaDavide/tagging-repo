@@ -1,0 +1,30 @@
+#https://confluence.intesasanpaolo.com/pages/viewpage.action?pageId=131930721
+#https://confluence.intesasanpaolo.com/display/IN/Change+Sistemistico+per+Container
+#http://gssw0.sede.corp.sanpaoloimi.com:24064/mxomniaweb/js/apps/pages/ServerImageMicroserviceApp.jsp
+
+config:
+  node: "linux && prod"
+
+build:
+  type: "python"
+  skiptest: false
+  loglevel: "info"
+  python_path: "prj/app/"
+  test_src_path: "plan"
+  python_version: 3.12.1
+  automatic_tag: true
+  save_workspace: false
+
+quality:
+  sonar:
+    active: true
+    debug: false
+
+deployment:
+  openshift:
+    active: true
+    base_image: "python-312-ubi9-isp:5.9.8-1784536529.0"
+    #https://gssportal.sede.corp.sanpaoloimi.com/gssportal/webapp/gss-monitoring-v1/server-image
+#notification:
+#  email: "emmanuele.lacavalla@intesasanpaolo.com"
+#  when: always

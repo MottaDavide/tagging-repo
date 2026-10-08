@@ -1,0 +1,12 @@
+application:
+  name: "cao-fac-tagging"
+
+description: |
+  API per il tagging automatico di documenti tramite modelli LLM.
+  Il servizio acquisisce un file, esegue parsing, annotazione, tagging
+  e genera summary.
+
+short_description: |
+  API per il tagging automatico di documenti e la generazione di summary tramite LLM.
+
+tags_metadata: []

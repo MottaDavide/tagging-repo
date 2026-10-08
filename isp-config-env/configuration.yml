@@ -1,0 +1,22 @@
+### Configuration for internal deployment in Openshift
+### DO NOT TOUCH this file!!!
+### https://confluence.intesasanpaolo.com/display/IN/Configurazioni+Paas
+
+configuration:
+  env:
+    - name: BIND
+      value: "0.0.0.0:8080"
+    - name: MAX_WORKERS
+      value: "1"
+    - name: WORKER_TIMEOUT
+      value: "0"
+    - name: MY_HOME
+      value: "/opt/app-root/com.intesasanpaolo.bdl/app-config"
+    - name: APP_CONF_DIR
+      value: "/opt/app-root/com.intesasanpaolo.bdl/app-config/prj/app/config"
+    - name: DS_CONF_DIR
+      value: "/usr/local/.config"
+    - name: APP_SCRIPT
+      value: "../../../com.intesasanpaolo.bdl/startup/start.sh"
+    - name: TIKTOKEN_CACHE_DIR
+      value: "/opt/app-root/com.intesasanpaolo.bdl/tiktoken_cache"

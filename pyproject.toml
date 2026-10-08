@@ -1,0 +1,203 @@
+[build-system]
+requires = ["setuptools>=70", "wheel", "pyyaml>=6.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cao-fac-tagging"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+readme = "README.md"
+
+authors = [{ name = "BDL" }]
+dependencies = [
+    "gunicorn==23.0.0",
+    "uvicorn[standard]==0.32.0",
+    "bdlpkg-core[web]>=1.8.0",
+    "delivery-factory-genai==1.12.0",
+    "pypdf==6.10.2",
+    "tiktoken>=0.12.0",
+    "tzdata>=2026.2",
+    "openpyxl>=3.1.5",
+    "click>=8.1",
+    "tenacity>=9.0",
+    "soa-detection==0.5.0",
+]
+
+[tool.uv]
+no-cache = true
+package = false
+allow-insecure-host = ["arti0-artifactory.sede.corp.sanpaoloimi.com"]
+
+[[tool.uv.index]]
+name = "artifactory"
+url = "https://arti0-artifactory.sede.corp.sanpaoloimi.com/artifactory/api/pypi/pypi-repos/simple/"
+default = true
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "pytest-env>=1.1",
+    "pytest-mock>=3.14",
+    "ruff>=0.4",
+    "mypy>=1.10",
+    "pre-commit>=3.7",
+    "bdlpkg-core[test,web]>=1.8.0",
+    "types-openpyxl>=3.1.5.20260408",
+]
+
+
+[tool.ruff]
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "__pypcache__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+    "*.ipynb",
+]
+target-version = "py312"  # allineato al requires-python del progetto
+line-length = 120          # limite di linea esteso rispetto al default (79/88)
+fix = true                 # auto-fix abilitato per le regole fixable
+src = ["prj/app", "prj/scripts", "prj", "tests"]  # percorsi sorgente per la risoluzione degli import (prj → pacchetto `evaluation`)
+
+[tool.ruff.lint]
+select = [
+    # --- standard ---
+    "F",      # pyflakes: errori logici (variabili non usate, import non usati, ecc.)
+    "E",      # pycodestyle errors: violazioni di stile PEP8
+    "I",      # isort: ordinamento e raggruppamento degli import
+    "W",      # pycodestyle warnings: avvisi di stile PEP8
+    "UP",     # pyupgrade: aggiorna la sintassi a costrutti Python più moderni
+    "N",      # pep8-naming: convenzioni di naming (classi, funzioni, variabili)
+    "C",      # mccabe: complessità ciclomatica (soglia configurata in [tool.ruff.lint.mccabe])
+    "B",      # flake8-bugbear: pattern ad alto rischio di bug o design problematico
+    "A",      # flake8-builtins: variabili che shadowing i builtin Python
+    # --- type annotations ---
+    "ANN001", # argomenti di funzione senza annotazione di tipo
+    "ANN002", # *args senza annotazione di tipo
+    "ANN003", # **kwargs senza annotazione di tipo
+    "ANN201", # funzioni pubbliche senza return type annotation
+    "ANN205", # metodi statici senza return type annotation
+    "ANN206", # metodi di classe senza return type annotation
+    # --- sicurezza ---
+    "S",      # flake8-bandit: vulnerabilità di sicurezza (SQL injection, secret hardcoded, subprocess insicuri, ecc.)
+    # --- async / FastAPI ---
+    "ASYNC",  # flake8-async: best practice async/await (es. blocking calls nell'event loop)
+    # --- logging ---
+    "LOG",    # flake8-logging: uso corretto del modulo logging
+    "G",      # flake8-logging-format: evita f-string nei log (usa %s o extra=) per performance e filtraggio
+    # --- qualità del codice ---
+    "T20",    # flake8-print: blocca print() nel codice sorgente
+    "TRY",    # tryceratops: pattern corretti per exception handling
+    "SIM",    # flake8-simplify: semplifica if/else ridondanti, isinstance chains, context manager multipli
+    "RET",    # flake8-return: coerenza nei return (no assegnazione inutile prima di return, no else dopo return)
+    "RUF",    # ruff-specific: regole native Ruff (es. RUF012 per mutable default in classi Pydantic)
+    # --- test ---
+    "PT",     # flake8-pytest-style: stile consistente nei test pytest
+    # --- datetime ---
+    "DTZ",    # flake8-datetimez: tutti i datetime devono avere timezone (critico per timestamp nelle risposte API)
+]
+ignore = [
+    # --- stile ---
+    "E501",   # line too long: gestito da line-length sopra
+    # --- test ---
+    "B017",   # pytest.raises senza match= (accettabile in alcuni test smoke)
+    # --- naming ---
+    "N815",   # mixedCase nelle variabili (usato nei modelli Pydantic per compatibilità con le lib proprietarie)
+    # --- compatibilità ---
+    "UP007",  # usa X | Y invece di Optional[X]: disabilitato per compatibilità con le librerie proprietarie
+    "A005",   # modulo che shadowing un builtin Python (es. moduli interni con nomi come 'io', 'types')
+    # --- exception handling ---
+    "TRY003", # messaggi di eccezione lunghi inline: spesso necessari per API error response descrittive
+    # --- sicurezza ---
+    "S101",   # uso di assert: gestito via per-file-ignores (consentito solo nei test)
+]
+fixable = ["ALL"]  # tutte le regole fixable possono essere auto-corrette
+unfixable = []
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101", "ANN", "T20"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 20  # soglia di complessità
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+
+[tool.mypy]
+python_version = "3.12"                 # allineato al requires-python del progetto
+mypy_path = "prj/app:prj/scripts:prj"   # `prj` ultimo: `core.*` resta risolto da prj/app, `evaluation.*` da prj
+namespace_packages = true               # abilita i namespace package (PEP 420), necessario per la struttura prj/
+explicit_package_bases = true           # usa mypy_path come unica base per risolvere i nomi dei moduli, evitando il conflitto tra "api.*" (da mypy_path) e "app.api.*" (da prj/app/__init__.py)
+disallow_untyped_defs = true            # tutte le funzioni devono avere annotazioni di tipo complete
+disallow_incomplete_defs = true         # vietato lasciare annotazioni parziali (alcuni argomenti tipati, altri no)
+check_untyped_defs = true               # analizza il corpo anche delle funzioni prive di annotazioni
+disallow_untyped_decorators = true      # i decorator applicati a funzioni tipate devono essere essi stessi tipati
+no_implicit_optional = true             # `def f(x: str = None)` è un errore: usare `Optional[str]` o `str | None`
+warn_return_any = true                  # segnala quando una funzione torna `Any` implicitamente
+warn_redundant_casts = true             # segnala cast() inutili (il tipo è già quello indicato)
+disallow_any_generics = true            # vietato usare generici senza parametri (es. `List` invece di `List[str]`)
+show_error_codes = true                 # mostra il codice dell'errore (es. [assignment]) per facilitare ignore mirati
+warn_unused_ignores = true              # segnala `# type: ignore` che non sono più necessari
+plugins = ["pydantic.mypy"]             # plugin Pydantic: migliora l'inferenza di tipo sui modelli Pydantic
+
+[[tool.mypy.overrides]]
+module = [
+    "bdlpkg.*",
+    "bdlpkg_core.*",
+    "bdlfile.*",
+    "smartocr.*",
+    "soa_detection.*",
+]
+ignore_missing_imports = true           # le librerie proprietarie non hanno stub mypy distribuiti
+
+
+
+[tool.pytest.ini_options]
+addopts = [
+    "--cov=prj/app",                 # coverage misurata sull'intero package applicativo (core + api)
+    "--cov-report", "term-missing",  # riepilogo con righe scoperte
+    "--cov-report", "html",          # report HTML navigabile in htmlcov/
+    "--cov-fail-under=85",           # gate: fail se coverage scende sotto 85%
+    "--import-mode=importlib",       # path completo come module id → niente clash su test_*.py omonimi in cartelle diverse
+    # plugin transitivi non utilizzati: disabilitati per ridurre l'overhead di startup
+    "-p", "no:html",                 # pytest-html plugin principale
+    "-p", "no:html_fixtures",        # pytest-html sub-plugin fixtures (entry point separato)
+    "-p", "no:metadata",             # pytest-metadata: dipendenza di pytest-html, non usata direttamente
+    "-p", "no:subtests",             # pytest-subtests: nessun test usa la fixture subtests
+    "-p", "no:anyio",                # anyio: nessun test async
+]
+python_files = ["test_*.py"]                         # raccoglie solo i file che seguono la convenzione test_*.py
+python_classes = ["Test*"]                           # raccoglie solo le classi che seguono la convenzione Test*
+python_functions = ["test_*"]                        # raccoglie solo le funzioni che seguono la convenzione test_*
+pythonpath = ["prj/app", "prj/scripts", "prj", "tests"]     # `prj` prima di `tests` così `import evaluation` risolve prj/evaluation e non tests/evaluation
+testpaths = ["tests/plan", "tests/evaluation"]  # core (gated) + api + evaluation (fuori dal gate di coverage)
+filterwarnings = [
+    "error",                                          # tratta tutti i warning come errori (fail fast su deprecation non gestite)
+    "ignore::DeprecationWarning:pydantic",            # ignora i DeprecationWarning interni di Pydantic
+    "ignore::DeprecationWarning:PyPDF2",              # smartocr legacy importa PyPDF2 (deprecato a favore di pypdf)
+    "ignore::DeprecationWarning:smartocr",            # warning interno smartocr transitive
+]
+env = [
+    "D:APP_CONF_DIR=prj/app/config",    # D: = default (non sovrascrive se già impostato nell'ambiente)
+    "D:DS_CONF_DIR=prj/app/config",
+    "D:MY_HOME=.",
+]
